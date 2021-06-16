@@ -192,19 +192,19 @@ while cap.isOpened():
 
 
       #colored
-      # dst = cv2.cvtColor(frame,cv2.COLOR_RGB2GRAY)
+      dst = cv2.cvtColor(frame,cv2.COLOR_RGB2GRAY)
 
-      # minGray = 255
-      # new_col,new_row=0,0
+      minGray = 255
+      new_col,new_row=0,0
       
-      # for i in range(y1,y2):
-      #     for j in range(x1,x2):
-      #         if(dst[i,j]<minGray):
-      #           minGray=dst[i,j]
-      #           new_col,new_row=i,j
-      # print(new_col,new_row)
-      # seed_points = [(new_col,new_row)]  #输入选取的种子像素
-      # seed_grow_image = regional_growth(y1,y2,x1,x2,frame,dst,seed_points,3)
+      for i in range(y1,y2):
+          for j in range(x1,x2):
+              if(dst[i,j]<minGray):
+                minGray=dst[i,j]
+                new_col,new_row=i,j
+      print(new_col,new_row)
+      seed_points = [(new_col,new_row)]  #输入选取的种子像素
+      seed_grow_image = regional_growth(y1,y2,x1,x2,frame,dst,seed_points,3)
       #cv2.circle(frame,(new_col,new_row),10,(0,0,255))
 
       
